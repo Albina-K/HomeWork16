@@ -15,32 +15,37 @@ namespace HomeWork16.Tests
         {
             var calculator = new Calculator();
 
-            Assert.Equals(6, calculator.Additional(2, 4));
+            Assert.That(calculator.Additional(2, 4) == 6);
         }
 
         [Test]
-        public int Subtraction(int a, int b)
+        public void c_MustReturnNotNullValue()
         {
-            return a - b;
+            var calculator = new Calculator();
+
+            Assert.That(calculator.Subtraction(12, 7) == 5);
         }
 
-        public int Miltiplication(int a, int b)
+        [Test]
+        public void Miltiplication_MustReturnNotNullValue()
         {
-            return a * b;
+            var calculator = new Calculator();
+
+            Assert.That(calculator.Miltiplication(3, 4) == 12);
         }
 
         [Test]
         public void Division_MustReturnNotNullValue()
         {
             var calculator = new Calculator();
-            Assert.Equals(2, calculator.Additional(10, 5));
+            Assert.That(calculator.Division(10, 5) == 2);
         }
 
         [Test]
         public void Division_MustThrowException()
         {
             var calculator = new Calculator();
-            Assert.Throws<DivideByZeroException>(() => calculator.Division(30, 0));
+            Assert.Throws<DivideByZeroException>(() => calculator.Division(150, 0));
         }
     }
 }
